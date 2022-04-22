@@ -15,7 +15,9 @@ SRC	=	$(DIR)main.c\
 		$(DIR)run_bsq.c\
 		$(DIR)get_size.c\
 		$(DIR)my_getnbr.c\
-		$(DIR)my_intlen.c
+		$(DIR)my_intlen.c\
+		$(DIR)change_map.c\
+		$(DIR)free_map.c
 
 OBJ	=	$(SRC:.c=.o)
 

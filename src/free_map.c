@@ -7,6 +7,14 @@
 
 #include "bsq.h"
 
+void free_tab(int **tab)
+{
+    for (int i = 0; tab[i] != NULL; ++i) {
+        free(tab[i]);
+    }
+    free(tab);
+}
+
 void free_array(char **array)
 {
     for (int i = 0; array[i] != NULL; ++i) {
