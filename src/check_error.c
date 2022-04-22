@@ -7,6 +7,19 @@
 
 #include "bsq.h"
 
+static int check_char_map(bsq_t *bsq)
+{
+    char *map = bsq->map;
+
+    for (int i = my_intlen(my_getnbr(map)) + 1; map[i] != '\0'; ++i) {
+        if ((map[i] != 'o' && map[i] != '.') && map[i] != '\n') {
+            write(2, "Invalid character, only 'o' and '.' are allowed\n", 48);
+            return ERROR;
+        }
+    }
+    return SUCCESS;
+}
+
 static int check_map(bsq_t *bsq, int fd, struct stat buf)
 {
     bsq->map = malloc(sizeof(char) * (buf.st_size + 1));
@@ -38,6 +51,11 @@ static int get_map(bsq_t *bsq, char const *file)
         return ERROR;
     }
     if (check_map(bsq, fd, buf) == ERROR) {
+        close(fd);
+        return ERROR;
+    }
+    if (check_char_map(bsq) == ERROR) {
+        free(bsq->map);
         close(fd);
         return ERROR;
     }
