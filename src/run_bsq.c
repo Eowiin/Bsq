@@ -9,9 +9,10 @@
 
 void run_bsq(bsq_t *bsq)
 {
-    char **my_map = NULL;
+    char **array = NULL;
     int **int_map = NULL;
 
     get_size_map(bsq);
-    return;
+    array = change_to_array(bsq);
+    free_array(array);
 }

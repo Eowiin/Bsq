@@ -15,6 +15,7 @@ void get_size_map(bsq_t *bsq)
     for (int i = my_intlen(my_getnbr(map)) + 1; map[i] != '\n'; ++i) {
         width += 1;
     }
+    width += 1;
     bsq->width = width;
     bsq->height = my_getnbr(map);
 }
