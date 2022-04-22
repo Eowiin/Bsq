@@ -16,6 +16,7 @@
     #include <stdlib.h>
     #define ERROR 84
     #define SUCCESS 0
+    
 
 typedef struct bsq {
     int width;
