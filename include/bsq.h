@@ -27,6 +27,7 @@ typedef struct bsq {
     char *map;
 } bsq_t;
 
+void display_map(char **array, bsq_t *bsq);
 void free_tab(int **tab);
 int **change_to_int_array(char **map, bsq_t *bsq);
 void free_array(char **array);

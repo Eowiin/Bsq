@@ -17,7 +17,8 @@ SRC	=	$(DIR)main.c\
 		$(DIR)my_getnbr.c\
 		$(DIR)my_intlen.c\
 		$(DIR)change_map.c\
-		$(DIR)free_map.c
+		$(DIR)free_map.c\
+		$(DIR)display_map.c
 
 OBJ	=	$(SRC:.c=.o)
 

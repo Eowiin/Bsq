@@ -11,6 +11,10 @@ static int change_values(int **tab, char **map, int i, int j)
 {
     int stock = tab[i][j - 1];
 
+    if (map[i - 1][j - 1] == 'o') {
+        stock = 0;
+        return stock;
+    }
     if (tab[i - 1][j] < stock) {
         stock = tab[i - 1][j];
     }
@@ -50,8 +54,8 @@ int **change_to_int_array(char **map, bsq_t *bsq)
     int **tab = malloc(sizeof(int *) * (bsq->height + 2));
 
     for (int i = 0; i < bsq->height + 1; ++i) {
-        tab[i] = malloc(sizeof(int) * (bsq->width + 2));
-        tab[i][bsq->width + 1] = -3;
+        tab[i] = malloc(sizeof(int) * (bsq->width + 1));
+        tab[i][bsq->width] = -3;
     }
     for (int i = 0; i < bsq->height + 1; ++i) {
         for (int j = 0; j < bsq->width + 1; ++j) {
